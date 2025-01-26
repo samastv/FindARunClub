@@ -96,12 +96,14 @@ $(document).ready(function() {
             let time = $('#timeFilter').val();
             
             let rowBorough = data[0];  // Borough column
-            let rowStatus = row.Status; // Get status from the raw data
-            let rowDay = data[4];      // Day column (index changed)
-            let rowTime = data[6];     // Time column (index changed)
+            let rowDay = data[4];      // Day column
+            let rowTime = data[6];     // Time column
+            
+            // Get the full row data to access Status
+            let rowData = table.row(dataIndex).data();
             
             // Status filter - only show Active
-            if (rowStatus !== 'Active') return false;
+            if (rowData.Status !== 'Active') return false;
             
             // Borough filter
             if (borough && borough !== rowBorough) return false;
