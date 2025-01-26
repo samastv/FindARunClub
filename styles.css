@@ -1,63 +1,219 @@
+:root {
+    --primary-color: #4F46E5;
+    --primary-hover: #4338CA;
+    --background: #F9FAFB;
+    --card-background: #FFFFFF;
+    --text-primary: #111827;
+    --text-secondary: #6B7280;
+    --border-color: #E5E7EB;
+}
+
 body {
     padding: 2rem;
-    background-color: #f8f9fa;
+    background-color: var(--background);
+    color: var(--text-primary);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
 
 .container {
-    background-color: white;
-    padding: 2rem;
-    border-radius: 10px;
-    box-shadow: 0 0 20px rgba(0,0,0,0.1);
+    background-color: var(--card-background);
+    padding: 2.5rem;
+    border-radius: 16px;
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    max-width: 1400px;
+    margin: 0 auto;
+    overflow-x: hidden;
 }
 
-.dataTables_wrapper {
-    margin-top: 20px;
-}
-
-table.dataTable thead th {
-    background-color: #f8f9fa;
-    font-weight: 600;
-}
-
-.dataTables_filter input {
-    border: 1px solid #dee2e6;
-    border-radius: 4px;
-    padding: 4px 10px;
-}
-
-.dataTables_length select {
-    border: 1px solid #dee2e6;
-    border-radius: 4px;
-    padding: 4px 10px;
+h2 {
+    font-weight: 700;
+    font-size: 1.875rem;
+    margin-bottom: 2rem;
+    color: var(--text-primary);
 }
 
 .filter-section {
-    background-color: #f8f9fa;
-    padding: 1.5rem;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    background-color: var(--background);
+    padding: 1.75rem;
+    border-radius: 12px;
+    margin-bottom: 2rem;
+    border: 1px solid var(--border-color);
 }
 
 .filter-sentence {
     font-size: 1.1rem;
     margin-bottom: 0;
     line-height: 2;
+    color: var(--text-primary);
 }
 
 .filter-select {
     display: inline-block;
-    padding: 4px 8px;
-    margin: 0 4px;
-    border: 2px solid #007bff;
-    border-radius: 4px;
-    background-color: white;
-    color: #007bff;
+    padding: 0.5rem 2rem 0.5rem 1rem;
+    margin: 0 0.5rem;
+    border: 2px solid var(--border-color);
+    border-radius: 8px;
+    background-color: var(--card-background);
+    color: var(--text-primary);
     font-weight: 500;
     cursor: pointer;
+    transition: all 0.2s ease;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%236B7280'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 0.75rem center;
+    background-size: 1rem;
+}
+
+.filter-select:hover {
+    border-color: var(--primary-color);
 }
 
 .filter-select:focus {
     outline: none;
-    border-color: #0056b3;
-    box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+}
+
+/* DataTable Styling */
+.dataTables_wrapper {
+    margin-top: 1.5rem;
+}
+
+table.dataTable {
+    border-collapse: collapse !important;
+    width: 100% !important;
+    table-layout: fixed !important;
+}
+
+table.dataTable thead th {
+    background-color: var(--background);
+    font-weight: 600;
+    color: var(--text-secondary);
+    padding: 1rem 0.5rem;
+    border-bottom: 2px solid var(--border-color);
+    white-space: nowrap;
+    overflow: visible;
+}
+
+table.dataTable tbody td {
+    padding: 0.75rem 0.5rem;
+    border-bottom: 1px solid var(--border-color);
+    color: var(--text-primary);
+    vertical-align: top;
+}
+
+table.dataTable tbody tr:hover {
+    background-color: var(--background) !important;
+}
+
+.dataTables_filter {
+    margin-bottom: 1.5rem;
+}
+
+.dataTables_filter input {
+    border: 2px solid var(--border-color);
+    border-radius: 8px;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    width: 300px;
+    transition: all 0.2s ease;
+}
+
+.dataTables_filter input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+}
+
+.dataTables_info {
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+    margin-top: 1rem;
+}
+
+/* Link styling */
+table.dataTable tbody td a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+
+table.dataTable tbody td a:hover {
+    color: var(--primary-hover);
+    text-decoration: underline;
+}
+
+/* Scrollbar styling */
+.dataTables_scrollBody::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+.dataTables_scrollBody::-webkit-scrollbar-track {
+    background: var(--background);
+    border-radius: 4px;
+}
+
+.dataTables_scrollBody::-webkit-scrollbar-thumb {
+    background: #CBD5E1;
+    border-radius: 4px;
+}
+
+.dataTables_scrollBody::-webkit-scrollbar-thumb:hover {
+    background: #94A3B8;
+}
+
+/* Cell text wrapping */
+.wrap-text {
+    white-space: normal;
+    word-wrap: break-word;
+    word-break: break-word;
+    min-width: 0;
+    hyphens: auto;
+}
+
+/* Make the table container responsive */
+.dataTables_scrollBody {
+    max-width: 100%;
+    overflow-x: auto;
+}
+
+/* Adjust search box width for smaller screens */
+@media (max-width: 768px) {
+    .dataTables_filter input {
+        width: 200px;
+    }
+}
+
+/* Make the filter section responsive */
+@media (max-width: 992px) {
+    .filter-sentence {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        align-items: flex-start;
+    }
+    
+    .filter-select {
+        width: 100%;
+        max-width: 300px;
+    }
+}
+
+/* Add specific styling for the crew column */
+table.dataTable tbody td:nth-child(2) {
+    white-space: normal;
+    word-wrap: break-word;
+    word-break: break-word;
+    min-width: 0;
+}
+
+/* Add this to hide the sorting arrows */
+table.dataTable thead th.sorting,
+table.dataTable thead th.sorting_asc,
+table.dataTable thead th.sorting_desc {
+    background-image: none !important;
+    padding-right: 0.5rem !important;
 } 

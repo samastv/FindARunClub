@@ -20,11 +20,20 @@ $(document).ready(function() {
         table = $('#crewTable').DataTable({
             data: data,
             columns: [
-                { data: 'Borough' },
-                { data: 'Crew' },
-                { data: 'Status' },
+                { data: 'Borough', width: '8%' },
+                { 
+                    data: 'Crew',
+                    width: '12%',
+                    render: function(data, type, row) {
+                        if (type === 'display' && data) {
+                            return '<div class="wrap-text">' + data + '</div>';
+                        }
+                        return data;
+                    }
+                },
                 { 
                     data: 'Website',
+                    width: '6%',
                     render: function(data, type, row) {
                         if (type === 'display' && data) {
                             return '<a href="' + data + '" target="_blank">Link</a>';
@@ -32,16 +41,52 @@ $(document).ready(function() {
                         return data;
                     }
                 },
-                { data: 'Location' },
-                { data: 'Day' },
-                { data: 'Distance/Run Type' },
-                { data: 'Time' },
-                { data: 'Meet Up Information' },
-                { data: 'Recognized Organizations' }
+                { 
+                    data: 'Location',
+                    width: '18%',
+                    render: function(data, type, row) {
+                        if (type === 'display' && data) {
+                            return '<div class="wrap-text">' + data + '</div>';
+                        }
+                        return data;
+                    }
+                },
+                { data: 'Day', width: '6%' },
+                { 
+                    data: 'Distance/Run Type',
+                    width: '10%',
+                    render: function(data, type, row) {
+                        if (type === 'display' && data) {
+                            return '<div class="wrap-text">' + data + '</div>';
+                        }
+                        return data;
+                    }
+                },
+                { data: 'Time', width: '8%' },
+                { 
+                    data: 'Meet Up Information',
+                    width: '32%',
+                    render: function(data, type, row) {
+                        if (type === 'display' && data) {
+                            return '<div class="wrap-text">' + data + '</div>';
+                        }
+                        return data;
+                    }
+                }
             ],
-            pageLength: 25,
+            deferRender: true,
+            scrollY: '60vh',
+            scrollCollapse: true,
+            scroller: true,
+            pageLength: 50,
             responsive: true,
-            order: [[0, 'asc'], [1, 'asc']]
+            ordering: false,
+            order: [[0, 'asc'], [1, 'asc']],
+            dom: '<"top"f>rt<"bottom"i>',
+            language: {
+                info: "Showing _START_ to _END_ of _TOTAL_ clubs",
+                infoFiltered: "(filtered from _MAX_ total clubs)"
+            }
         });
 
         // Custom filtering function
@@ -51,8 +96,12 @@ $(document).ready(function() {
             let time = $('#timeFilter').val();
             
             let rowBorough = data[0];  // Borough column
-            let rowDay = data[5];      // Day column
-            let rowTime = data[7];     // Time column
+            let rowStatus = row.Status; // Get status from the raw data
+            let rowDay = data[4];      // Day column (index changed)
+            let rowTime = data[6];     // Time column (index changed)
+            
+            // Status filter - only show Active
+            if (rowStatus !== 'Active') return false;
             
             // Borough filter
             if (borough && borough !== rowBorough) return false;
