@@ -17,7 +17,41 @@
 </head>
 <body>
     <div class="container">
-        <h2 class="mb-4">Running Crews Directory</h2>
+        <h2 class="mb-4">NYC Run Clubs</h2>
+        
+        <!-- Interactive Filter -->
+        <div class="filter-section mb-4">
+            <p class="filter-sentence">
+                I am looking for a run club in 
+                <select id="boroughFilter" class="filter-select">
+                    <option value="">any borough</option>
+                    <option value="Brooklyn">Brooklyn</option>
+                    <option value="Manhattan">Manhattan</option>
+                    <option value="Queens">Queens</option>
+                    <option value="The Bronx">The Bronx</option>
+                    <option value="Staten Island">Staten Island</option>
+                </select>
+                which runs on
+                <select id="dayFilter" class="filter-select">
+                    <option value="">any day</option>
+                    <option value="Monday">Monday</option>
+                    <option value="Tuesday">Tuesday</option>
+                    <option value="Wednesday">Wednesday</option>
+                    <option value="Thursday">Thursday</option>
+                    <option value="Friday">Friday</option>
+                    <option value="Saturday">Saturday</option>
+                    <option value="Sunday">Sunday</option>
+                </select>
+                <span id="timePreposition">in the</span>
+                <select id="timeFilter" class="filter-select">
+                    <option value="">any time</option>
+                    <option value="morning">morning</option>
+                    <option value="afternoon">afternoon</option>
+                    <option value="evening">evening</option>
+                </select>
+            </p>
+        </div>
+
         <table id="crewTable" class="table table-striped table-hover">
             <thead>
                 <tr>

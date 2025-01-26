@@ -29,4 +29,35 @@ table.dataTable thead th {
     border: 1px solid #dee2e6;
     border-radius: 4px;
     padding: 4px 10px;
+}
+
+.filter-section {
+    background-color: #f8f9fa;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.filter-sentence {
+    font-size: 1.1rem;
+    margin-bottom: 0;
+    line-height: 2;
+}
+
+.filter-select {
+    display: inline-block;
+    padding: 4px 8px;
+    margin: 0 4px;
+    border: 2px solid #007bff;
+    border-radius: 4px;
+    background-color: white;
+    color: #007bff;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.filter-select:focus {
+    outline: none;
+    border-color: #0056b3;
+    box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
 } 
