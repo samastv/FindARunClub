@@ -22,7 +22,7 @@ body {
 
 .container {
     background-color: var(--card-background);
-    padding: 2rem;
+    padding: 2.5rem;
     border-radius: 16px;
     box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
     max-width: 1400px;
@@ -35,10 +35,22 @@ body {
 }
 
 h2 {
-    font-weight: 700;
-    font-size: 1.875rem;
-    margin: 0 0 1.5rem 0;
+    font-weight: 800;
+    font-size: 1.75rem;
+    margin: 0 0 2rem 0;
     color: var(--text-primary);
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+h2::before {
+    content: '';
+    display: block;
+    width: 3px;
+    height: 24px;
+    background: var(--primary-color);
+    border-radius: 2px;
 }
 
 .filter-section {
@@ -310,16 +322,16 @@ table.dataTable thead th.sorting_desc {
     .container {
         height: 98vh;
         margin: 0.5rem;
+        padding: 1.5rem;
     }
 
     h2 {
         font-size: 1.5rem;
-        margin-bottom: 1rem;
+        margin-bottom: 1.5rem;
     }
 
-    .filter-section {
-        padding: 1rem;
-        margin-bottom: 1rem;
+    h2::before {
+        height: 20px;
     }
 }
 
