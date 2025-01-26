@@ -74,11 +74,11 @@ $(document).ready(function() {
                     }
                 }
             ],
-            deferRender: true,
-            scrollY: '60vh',
-            scrollCollapse: true,
-            scroller: true,
-            pageLength: 50,
+            deferRender: false,
+            scrollY: window.innerWidth <= 768 ? '' : '60vh',
+            scrollCollapse: false,
+            scroller: false,
+            pageLength: -1,
             responsive: true,
             ordering: false,
             order: [[0, 'asc'], [1, 'asc']],

@@ -206,7 +206,7 @@ table.dataTable tbody td a:hover {
     scrollbar-width: thin;
 }
 
-/* Cell text wrapping */
+/* Update the wrap-text class */
 .wrap-text {
     white-space: normal;
     word-wrap: break-word;
@@ -215,7 +215,7 @@ table.dataTable tbody td a:hover {
     hyphens: auto;
     overflow: hidden;
     display: -webkit-box;
-    -webkit-line-clamp: 4;
+    -webkit-line-clamp: 4; /* Show 4 lines by default */
     -webkit-box-orient: vertical;
 }
 
@@ -279,10 +279,149 @@ table.dataTable tbody td:nth-child(7) {
     overflow-x: auto;
 }
 
-/* Adjust search box width for smaller screens */
+/* Update mobile styles */
 @media (max-width: 768px) {
+    .container {
+        padding: 1rem;
+        width: 100%;
+        margin: 0;
+        height: 100vh;
+        border-radius: 0;
+    }
+
+    h2 {
+        font-size: 1.25rem;
+        margin-bottom: 1rem;
+    }
+
+    /* Adjust filter section */
+    .filter-section {
+        padding: 1rem;
+        margin-bottom: 1rem;
+        border-radius: 8px;
+    }
+
+    .filter-sentence {
+        font-size: 1rem;
+        line-height: 1.5;
+    }
+
+    /* Stack filter dropdowns vertically */
+    .filter-select {
+        width: 100%;
+        max-width: none;
+        margin: 0.5rem 0;
+    }
+
+    /* Table adjustments for horizontal scroll */
+    .dataTables_wrapper {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+    }
+
+    table.dataTable {
+        min-width: 1000px; /* Increased from 800px */
+    }
+
+    /* Adjust font sizes */
+    table.dataTable thead th {
+        padding: 0.75rem 0.5rem;
+        font-size: 0.875rem;
+        white-space: nowrap;
+    }
+
+    table.dataTable tbody td {
+        padding: 1rem 0.5rem;
+        font-size: 0.875rem;
+        line-height: 1.5;
+        height: auto;
+    }
+
+    /* Adjust search box */
+    .dataTables_filter {
+        margin-bottom: 0.75rem;
+    }
+
     .dataTables_filter input {
-        width: 200px;
+        width: 100%;
+        max-width: none;
+        font-size: 0.875rem;
+    }
+
+    .dataTables_filter label {
+        width: 100%;
+        display: block;
+    }
+
+    /* Adjust info text */
+    .dataTables_info {
+        font-size: 0.75rem;
+        margin: 0.75rem 0;
+    }
+
+    /* Show scrollbar on mobile */
+    .dataTables_scrollBody::-webkit-scrollbar {
+        display: block;
+        height: 4px;
+    }
+
+    .dataTables_scrollBody {
+        scrollbar-width: thin;
+        height: auto !important;
+        max-height: none !important;
+    }
+
+    /* Remove line clamping on mobile */
+    .wrap-text {
+        -webkit-line-clamp: unset;
+        display: block;
+        height: auto;
+        overflow: visible;
+    }
+
+    /* Adjust tooltip behavior for mobile */
+    .wrap-text:hover::after {
+        display: none; /* Disable tooltips on mobile since full text is visible */
+    }
+
+    /* Ensure specific columns have enough width */
+    table.dataTable tbody td:nth-child(1), /* Borough */
+    table.dataTable thead th:nth-child(1) {
+        min-width: 100px;
+        width: auto !important;
+    }
+
+    table.dataTable tbody td:nth-child(5), /* Day */
+    table.dataTable thead th:nth-child(5) {
+        min-width: 100px;
+        width: auto !important;
+    }
+
+    /* Remove any text truncation */
+    table.dataTable tbody td {
+        white-space: normal;
+        overflow: visible;
+        text-overflow: clip;
+    }
+}
+
+/* Additional adjustments for very small screens */
+@media (max-width: 375px) {
+    .container {
+        padding: 0.75rem;
+    }
+
+    h2 {
+        font-size: 1.125rem;
+    }
+
+    .filter-sentence {
+        font-size: 0.875rem;
+    }
+
+    .filter-select {
+        padding: 0.375rem 1.5rem 0.375rem 0.75rem;
+        font-size: 0.875rem;
     }
 }
 
@@ -332,11 +471,5 @@ table.dataTable thead th.sorting_desc {
 
     h2::before {
         height: 20px;
-    }
-}
-
-@media (max-width: 768px) {
-    .container {
-        padding: 1rem;
     }
 } 
