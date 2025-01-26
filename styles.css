@@ -9,35 +9,45 @@
 }
 
 body {
-    padding: 2rem;
+    padding: 0;
+    margin: 0;
+    min-height: 100vh;
     background-color: var(--background);
     color: var(--text-primary);
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .container {
     background-color: var(--card-background);
-    padding: 2.5rem;
+    padding: 2rem;
     border-radius: 16px;
     box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
     max-width: 1400px;
-    margin: 0 auto;
-    overflow-x: hidden;
+    width: 95%;
+    margin: 1rem;
+    height: 95vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
 }
 
 h2 {
     font-weight: 700;
     font-size: 1.875rem;
-    margin-bottom: 2rem;
+    margin: 0 0 1.5rem 0;
     color: var(--text-primary);
 }
 
 .filter-section {
     background-color: var(--background);
-    padding: 1.75rem;
+    padding: 1.25rem;
     border-radius: 12px;
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
     border: 1px solid var(--border-color);
+    flex-shrink: 0;
 }
 
 .filter-sentence {
@@ -77,13 +87,18 @@ h2 {
 
 /* DataTable Styling */
 .dataTables_wrapper {
-    margin-top: 1.5rem;
+    margin-top: 0;
+    flex: 1;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
 }
 
 table.dataTable {
     border-collapse: collapse !important;
     width: 100% !important;
     table-layout: fixed !important;
+    margin-bottom: 0 !important;
 }
 
 table.dataTable thead th {
@@ -101,6 +116,7 @@ table.dataTable tbody td {
     border-bottom: 1px solid var(--border-color);
     color: var(--text-primary);
     vertical-align: top;
+    overflow: hidden;
 }
 
 table.dataTable tbody tr:hover {
@@ -108,7 +124,7 @@ table.dataTable tbody tr:hover {
 }
 
 .dataTables_filter {
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
 }
 
 .dataTables_filter input {
@@ -127,9 +143,9 @@ table.dataTable tbody tr:hover {
 }
 
 .dataTables_info {
+    margin: 1rem 0;
     color: var(--text-secondary);
     font-size: 0.875rem;
-    margin-top: 1rem;
 }
 
 /* Link styling */
@@ -145,24 +161,37 @@ table.dataTable tbody td a:hover {
     text-decoration: underline;
 }
 
-/* Scrollbar styling */
+/* Update the scrollbar styling */
 .dataTables_scrollBody::-webkit-scrollbar {
     width: 8px;
     height: 8px;
+    display: none; /* Hide by default */
 }
 
-.dataTables_scrollBody::-webkit-scrollbar-track {
-    background: var(--background);
-    border-radius: 4px;
+/* Only show horizontal scrollbar when scrolling is possible */
+.dataTables_scrollBody:hover::-webkit-scrollbar {
+    display: block;
 }
 
-.dataTables_scrollBody::-webkit-scrollbar-thumb {
-    background: #CBD5E1;
-    border-radius: 4px;
+/* Only show the horizontal scrollbar if content is overflowing */
+.dataTables_scrollBody {
+    overflow-x: auto;
+    scrollbar-width: none; /* For Firefox */
+    -ms-overflow-style: none; /* For IE and Edge */
 }
 
-.dataTables_scrollBody::-webkit-scrollbar-thumb:hover {
-    background: #94A3B8;
+.dataTables_scrollBody:hover {
+    scrollbar-width: thin; /* For Firefox */
+}
+
+/* Hide scrollbar by default for Firefox */
+.dataTables_scrollBody {
+    scrollbar-width: none;
+}
+
+/* Show scrollbar on hover for Firefox */
+.dataTables_scrollBody:hover {
+    scrollbar-width: thin;
 }
 
 /* Cell text wrapping */
@@ -172,10 +201,68 @@ table.dataTable tbody td a:hover {
     word-break: break-word;
     min-width: 0;
     hyphens: auto;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+}
+
+/* Add specific column styling */
+table.dataTable tbody td:nth-child(1) {
+    padding-right: 1rem;
+}
+
+table.dataTable tbody td:nth-child(2) {
+    padding-right: 1rem;
+}
+
+table.dataTable tbody td:nth-child(3) {
+    padding-right: 1rem;
+}
+
+table.dataTable tbody td:nth-child(4) {
+    padding-right: 1rem;
+}
+
+table.dataTable tbody td:nth-child(5) {
+    padding-right: 1rem;
+}
+
+table.dataTable tbody td:nth-child(6) {
+    padding-right: 1rem;
+}
+
+table.dataTable tbody td:nth-child(7) {
+    padding-right: 1rem;
+}
+
+/* Add tooltip for truncated text */
+.wrap-text {
+    position: relative;
+}
+
+.wrap-text:hover::after {
+    content: attr(title);
+    display: none;
+    position: absolute;
+    background: var(--card-background);
+    padding: 0.5rem;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    z-index: 1000;
+    max-width: 300px;
+    word-wrap: break-word;
+}
+
+.wrap-text[title]:hover::after {
+    display: block;
 }
 
 /* Make the table container responsive */
 .dataTables_scrollBody {
+    flex: 1;
+    min-height: 0;
     max-width: 100%;
     overflow-x: auto;
 }
@@ -216,4 +303,28 @@ table.dataTable thead th.sorting_asc,
 table.dataTable thead th.sorting_desc {
     background-image: none !important;
     padding-right: 0.5rem !important;
+}
+
+/* Responsive adjustments */
+@media (max-height: 800px) {
+    .container {
+        height: 98vh;
+        margin: 0.5rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .filter-section {
+        padding: 1rem;
+        margin-bottom: 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 1rem;
+    }
 } 

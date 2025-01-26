@@ -26,7 +26,7 @@ $(document).ready(function() {
                     width: '12%',
                     render: function(data, type, row) {
                         if (type === 'display' && data) {
-                            return '<div class="wrap-text">' + data + '</div>';
+                            return '<div class="wrap-text" title="' + data.replace(/"/g, '&quot;') + '">' + data + '</div>';
                         }
                         return data;
                     }
@@ -46,7 +46,7 @@ $(document).ready(function() {
                     width: '18%',
                     render: function(data, type, row) {
                         if (type === 'display' && data) {
-                            return '<div class="wrap-text">' + data + '</div>';
+                            return '<div class="wrap-text" title="' + data.replace(/"/g, '&quot;') + '">' + data + '</div>';
                         }
                         return data;
                     }
@@ -57,7 +57,7 @@ $(document).ready(function() {
                     width: '10%',
                     render: function(data, type, row) {
                         if (type === 'display' && data) {
-                            return '<div class="wrap-text">' + data + '</div>';
+                            return '<div class="wrap-text" title="' + data.replace(/"/g, '&quot;') + '">' + data + '</div>';
                         }
                         return data;
                     }
@@ -68,7 +68,7 @@ $(document).ready(function() {
                     width: '32%',
                     render: function(data, type, row) {
                         if (type === 'display' && data) {
-                            return '<div class="wrap-text">' + data + '</div>';
+                            return '<div class="wrap-text" title="' + data.replace(/"/g, '&quot;') + '">' + data + '</div>';
                         }
                         return data;
                     }
