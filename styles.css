@@ -1,0 +1,32 @@
+body {
+    padding: 2rem;
+    background-color: #f8f9fa;
+}
+
+.container {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.1);
+}
+
+.dataTables_wrapper {
+    margin-top: 20px;
+}
+
+table.dataTable thead th {
+    background-color: #f8f9fa;
+    font-weight: 600;
+}
+
+.dataTables_filter input {
+    border: 1px solid #dee2e6;
+    border-radius: 4px;
+    padding: 4px 10px;
+}
+
+.dataTables_length select {
+    border: 1px solid #dee2e6;
+    border-radius: 4px;
+    padding: 4px 10px;
+} 
