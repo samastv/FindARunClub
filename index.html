@@ -3,7 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NYC Run Clubs</title>
+    
+    <!-- SEO Meta Tags -->
+    <title>NYC Run Clubs Directory | Find Running Groups in New York City</title>
+    <meta name="description" content="Find running clubs and groups in New York City. Browse active run clubs in Manhattan, Brooklyn, Queens, Bronx, and Staten Island. Filter by borough, day, and time.">
+    <meta name="keywords" content="NYC run clubs, New York City running groups, running crews NYC, Manhattan running clubs, Brooklyn run crews, Queens running groups, Bronx running clubs, Staten Island running groups, group runs NYC">
+    
+    <!-- Open Graph / Social Media Meta Tags -->
+    <meta property="og:title" content="NYC Run Clubs Directory | Find Running Groups in New York City">
+    <meta property="og:description" content="Find running clubs and groups in New York City. Browse active run clubs in all boroughs. Filter by location, day, and time.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://findarun.club">
     
     <!-- DataTables CSS -->
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.css">
@@ -20,14 +30,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="container">
-        <h2 class="mb-4">NYC Run Clubs</h2>
+    <main class="container">
+        <h1 class="main-title">NYC Run Clubs Directory</h1>
         
-        <!-- Interactive Filter -->
-        <div class="filter-section mb-4">
+        <section class="filter-section" aria-label="Run Club Filters">
             <p class="filter-sentence">
                 I am looking for a run club in 
-                <select id="boroughFilter" class="filter-select">
+                <select id="boroughFilter" class="filter-select" aria-label="Select Borough">
                     <option value="">any borough</option>
                     <option value="Brooklyn">Brooklyn</option>
                     <option value="Manhattan">Manhattan</option>
@@ -36,7 +45,7 @@
                     <option value="Staten Island">Staten Island</option>
                 </select>
                 which runs on
-                <select id="dayFilter" class="filter-select">
+                <select id="dayFilter" class="filter-select" aria-label="Select Day">
                     <option value="">any day</option>
                     <option value="Monday">Monday</option>
                     <option value="Tuesday">Tuesday</option>
@@ -47,30 +56,60 @@
                     <option value="Sunday">Sunday</option>
                 </select>
                 <span id="timePreposition">in the</span>
-                <select id="timeFilter" class="filter-select">
+                <select id="timeFilter" class="filter-select" aria-label="Select Time">
                     <option value="">any time</option>
                     <option value="morning">morning</option>
                     <option value="afternoon">afternoon</option>
                     <option value="evening">evening</option>
                 </select>
             </p>
-        </div>
+        </section>
 
-        <table id="crewTable" class="table table-striped table-hover">
-            <thead>
-                <tr>
-                    <th>Borough</th>
-                    <th>Crew</th>
-                    <th>Website</th>
-                    <th>Location</th>
-                    <th>Day</th>
-                    <th>Distance</th>
-                    <th>Time</th>
-                    <th>Meet Up Information</th>
-                </tr>
-            </thead>
-        </table>
-    </div>
+        <section class="table-section" aria-label="Run Clubs List">
+            <table id="crewTable" class="table table-striped table-hover">
+                <thead>
+                    <tr>
+                        <th>Borough</th>
+                        <th>Crew</th>
+                        <th>Website</th>
+                        <th>Location</th>
+                        <th>Day</th>
+                        <th>Distance</th>
+                        <th>Time</th>
+                        <th>Meet Up Information</th>
+                    </tr>
+                </thead>
+            </table>
+        </section>
+
+        <footer class="page-footer">
+            <p>Find your local running community in New York City. Join group runs across all five boroughs.</p>
+        </footer>
+    </main>
+
+    <!-- Structured Data for SEO -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": "NYC Run Clubs Directory",
+        "description": "Comprehensive directory of running clubs and groups in New York City, including Manhattan, Brooklyn, Queens, Bronx, and Staten Island.",
+        "keywords": "NYC running clubs, New York City run crews, running groups NYC",
+        "about": {
+            "@type": "SportsClub",
+            "name": "NYC Running Clubs",
+            "description": "Running clubs and groups across New York City's five boroughs"
+        },
+        "audience": {
+            "@type": "Audience",
+            "audienceType": "Runners, joggers, and running enthusiasts in NYC"
+        },
+        "locationCreated": {
+            "@type": "City",
+            "name": "New York City"
+        }
+    }
+    </script>
 
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
