@@ -172,7 +172,6 @@ $(document).ready(function() {
 
     // Initialize filters as expanded on mobile
     if (window.innerWidth <= 768) {
-        $('.filter-section').addClass('expanded');
-        $('.filter-toggle').attr('aria-expanded', true);
+        $('.filter-toggle').attr('aria-expanded', false);
     }
 }); 
