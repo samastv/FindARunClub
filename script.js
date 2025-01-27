@@ -34,7 +34,7 @@ $(document).ready(function() {
                 },
                 { 
                     data: 'Website',
-                    width: '6%',
+                    width: '8%',
                     render: function(data, type, row) {
                         if (type === 'display' && data) {
                             return '<a href="' + data + '" target="_blank">Link</a>';
@@ -52,10 +52,10 @@ $(document).ready(function() {
                         return data;
                     }
                 },
-                { data: 'Day', width: '6%' },
+                { data: 'Day', width: '10%' },
                 { 
                     data: 'Distance/Run Type',
-                    width: '10%',
+                    width: '12%',
                     render: function(data, type, row) {
                         if (type === 'display' && data) {
                             return '<div class="wrap-text" title="' + data.replace(/"/g, '&quot;') + '">' + data + '</div>';
@@ -162,4 +162,19 @@ $(document).ready(function() {
     }).fail(function(error) {
         console.error('Error loading CSV:', error);
     });
+
+    // Add at the beginning of the document.ready function
+    $('.filter-toggle').on('click', function() {
+        const section = $(this).closest('.filter-section');
+        const isExpanded = section.hasClass('expanded');
+        
+        section.toggleClass('expanded');
+        $(this).attr('aria-expanded', !isExpanded);
+    });
+
+    // Initialize filters as expanded on mobile
+    if (window.innerWidth <= 768) {
+        $('.filter-section').addClass('expanded');
+        $('.filter-toggle').attr('aria-expanded', true);
+    }
 }); 

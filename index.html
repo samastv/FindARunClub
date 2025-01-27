@@ -34,35 +34,43 @@
         <h1 class="main-title">NYC Run Clubs Directory</h1>
         
         <section class="filter-section" aria-label="Run Club Filters">
-            <p class="filter-sentence">
-                I am looking for a run club in 
-                <select id="boroughFilter" class="filter-select" aria-label="Select Borough">
-                    <option value="">any borough</option>
-                    <option value="Brooklyn">Brooklyn</option>
-                    <option value="Manhattan">Manhattan</option>
-                    <option value="Queens">Queens</option>
-                    <option value="The Bronx">The Bronx</option>
-                    <option value="Staten Island">Staten Island</option>
-                </select>
-                which runs on
-                <select id="dayFilter" class="filter-select" aria-label="Select Day">
-                    <option value="">any day</option>
-                    <option value="Monday">Monday</option>
-                    <option value="Tuesday">Tuesday</option>
-                    <option value="Wednesday">Wednesday</option>
-                    <option value="Thursday">Thursday</option>
-                    <option value="Friday">Friday</option>
-                    <option value="Saturday">Saturday</option>
-                    <option value="Sunday">Sunday</option>
-                </select>
-                <span id="timePreposition">at</span>
-                <select id="timeFilter" class="filter-select" aria-label="Select Time">
-                    <option value="">any time</option>
-                    <option value="morning">morning</option>
-                    <option value="afternoon">afternoon</option>
-                    <option value="evening">evening</option>
-                </select>
-            </p>
+            <button class="filter-toggle" aria-expanded="true" aria-controls="filterContent">
+                <span>Filters</span>
+                <svg class="filter-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                </svg>
+            </button>
+            <div id="filterContent" class="filter-content">
+                <p class="filter-sentence">
+                    I am looking for a run club in 
+                    <select id="boroughFilter" class="filter-select" aria-label="Select Borough">
+                        <option value="">any borough</option>
+                        <option value="Brooklyn">Brooklyn</option>
+                        <option value="Manhattan">Manhattan</option>
+                        <option value="Queens">Queens</option>
+                        <option value="The Bronx">The Bronx</option>
+                        <option value="Staten Island">Staten Island</option>
+                    </select>
+                    which runs on
+                    <select id="dayFilter" class="filter-select" aria-label="Select Day">
+                        <option value="">any day</option>
+                        <option value="Monday">Monday</option>
+                        <option value="Tuesday">Tuesday</option>
+                        <option value="Wednesday">Wednesday</option>
+                        <option value="Thursday">Thursday</option>
+                        <option value="Friday">Friday</option>
+                        <option value="Saturday">Saturday</option>
+                        <option value="Sunday">Sunday</option>
+                    </select>
+                    <span id="timePreposition">at</span>
+                    <select id="timeFilter" class="filter-select" aria-label="Select Time">
+                        <option value="">any time</option>
+                        <option value="morning">morning</option>
+                        <option value="afternoon">afternoon</option>
+                        <option value="evening">evening</option>
+                    </select>
+                </p>
+            </div>
         </section>
 
         <section class="table-section" aria-label="Run Clubs List">
