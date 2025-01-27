@@ -448,12 +448,39 @@ table.dataTable tbody td:nth-child(2) {
     min-width: 0;
 }
 
-/* Add this to hide the sorting arrows */
+/* Hide all sorting indicators completely */
+table.dataTable thead th,
+table.dataTable thead td,
 table.dataTable thead th.sorting,
 table.dataTable thead th.sorting_asc,
-table.dataTable thead th.sorting_desc {
+table.dataTable thead th.sorting_desc,
+table.dataTable thead th.sorting_asc_disabled,
+table.dataTable thead th.sorting_desc_disabled,
+table.dataTable thead td.sorting,
+table.dataTable thead td.sorting_asc,
+table.dataTable thead td.sorting_desc,
+table.dataTable thead td.sorting_asc_disabled,
+table.dataTable thead td.sorting_desc_disabled {
     background-image: none !important;
+    background: var(--background) !important;
+    cursor: default !important;
     padding-right: 0.5rem !important;
+}
+
+/* Additional override for DataTables default styles */
+.dataTable thead .sorting:before,
+.dataTable thead .sorting:after,
+.dataTable thead .sorting_asc:before,
+.dataTable thead .sorting_asc:after,
+.dataTable thead .sorting_desc:before,
+.dataTable thead .sorting_desc:after,
+.dataTable thead .sorting_asc_disabled:before,
+.dataTable thead .sorting_asc_disabled:after,
+.dataTable thead .sorting_desc_disabled:before,
+.dataTable thead .sorting_desc_disabled:after {
+    display: none !important;
+    content: "" !important;
+    background: none !important;
 }
 
 /* Responsive adjustments */

@@ -1,10 +1,11 @@
 $(document).ready(function() {
     let table;
 
-    // Add time filter preposition handler
+    // Update the time filter preposition handler
     $('#timeFilter').on('change', function() {
         const timePreposition = $('#timePreposition');
-        if ($(this).val() === '') {
+        const selectedValue = $(this).val();
+        if (selectedValue === '') {
             timePreposition.text('at');
         } else {
             timePreposition.text('in the');
