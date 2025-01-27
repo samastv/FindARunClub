@@ -101,10 +101,8 @@ $(document).ready(function() {
             ordering: true,
             order: [[6, 'asc']],
             dom: '<"top"f>rt<"bottom"i>',
-            language: {
-                info: "Showing _START_ to _END_ of _TOTAL_ clubs",
-                infoFiltered: "(filtered from _MAX_ total clubs)"
-            }
+            bInfo : false,
+            searching: false
         });
 
         // Custom filtering function
