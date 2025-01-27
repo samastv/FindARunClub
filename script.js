@@ -101,8 +101,7 @@ $(document).ready(function() {
             ordering: true,
             order: [[6, 'asc']],
             dom: '<"top"f>rt<"bottom"i>',
-            bInfo : false,
-            searching: false
+            info: false
         });
 
         // Custom filtering function
